@@ -46,7 +46,7 @@ class TestFnmatch(object):
 
 class BaseTest(object):
 
-    def setup(self):
+    def setup_method(self):
         self.basedir = tempfile.mkdtemp()
         self._old_cwd = os.getcwd()
         os.chdir(self.basedir)
@@ -56,7 +56,7 @@ class BaseTest(object):
     def setup_files(self):
         pass
 
-    def teardown(self):
+    def teardown_method(self):
         os.chdir(self._old_cwd)
         shutil.rmtree(self.basedir)
 
